@@ -21,8 +21,7 @@ Usage
 
 First set a Redis server up and running, then connect to that server using the correct host and port
 
-    mini = MiniMachine::MiniMe.new
-    mini.connect(:host => '127.0.0.1', :port => 6379)
+    mini = MiniMachine::MiniMe.new(:host => '127.0.0.1', :port => 6379)
     
 store some url
 
