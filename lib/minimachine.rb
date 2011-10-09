@@ -73,13 +73,13 @@ module MiniMachine
 
     def insert_url(url_s, s_label = nil)
       if s_label
-        shorted_key = @redis.get('url:native:' + s_label)
-        unless shorted_key
+        recoverd_url  = @redis.get('url:key:' + s_label)
+        unless recoverd_url
           @redis.set('url:key:' + s_label,url_s)
           @redis.set('url:native:' + url_s, s_label)
           shorted_key = s_label
         else
-          puts 'name already taken'
+          shorted_key = nil
         end
       else
         shorted_key = @redis.get('url:native:' + url_s)
