@@ -2,7 +2,7 @@ require 'redis'
 require 'yaml'
 
 module MiniMachine
-  VERSION = "0.0.1.a".freeze
+  VERSION = "0.0.1".freeze
 
   VALUES_ARRAY = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
                  'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
@@ -59,6 +59,10 @@ module MiniMachine
         @redis.ping
       rescue Errno::ECONNREFUSED => error
         puts error.to_s
+        raise error
+      rescue RuntimeError => error
+        puts "Error occurred on the execution, be sure to check if the " +
+             "host, port and password is set properly \n\n"
         raise error
       end
     end
