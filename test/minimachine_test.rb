@@ -35,7 +35,7 @@ describe MiniMachine do
 	    assert @mini.insert_url('http://google.com')
     end
 
-    it 'should registar and recover the same url' do
+    it 'should register and recover the same url' do
       skip("couldn't connect") unless @mini.connected?
       url_s = 'http://www.gmail.com'
       assert( url_id = @mini.insert_url(url_s) )
@@ -43,7 +43,7 @@ describe MiniMachine do
       assert url_s == recover
     end
 
-    it 'should registar a new url using a personalized name and recover it' do
+    it 'should register a new url using a personalized name and recover it' do
       skip("couldn't connect") unless @mini.connected?
       key = 'personizeurlkey'
       url = 'http://personized_url_key.net'
@@ -51,7 +51,7 @@ describe MiniMachine do
       recover_url = @mini.recover_url(key)
       assert recover_url == url
     end
-    	
+
   end
 
 end

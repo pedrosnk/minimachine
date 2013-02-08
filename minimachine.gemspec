@@ -10,9 +10,9 @@ Gem::Specification.new do |s|
  s.summary     = "Url Shortern written in ruby"
  s.description = "short urls and put into indexes int redis database"
  s.homepage    = "http://github.com/pedrosnk/minimachine"
- 
+
  s.files         = `git ls-files`.split("\n")
  s.require_paths = ["lib"]
-  
- s.add_dependency("redis", ">= 2.2.2")
+
+ s.add_dependency("redis", ">~ 3.0.2")
 end
